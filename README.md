@@ -33,11 +33,5 @@ A simple browser-based simulation showing what happens when two cars collide. Bu
 - Velocities on the canvas are scaled for animation; the displayed physics values are converted to m/s where appropriate.
 - Restitution (e) is applied in the collision response so you can test elastic and inelastic cases.
 
-## Publishing
-To host this simulation using GitHub Pages:
-1. Go to your repository's Settings -> Pages
-2. Select the `main` branch and `/ (root)` folder, Save
-3. The site will be available at `https://<your-username>.github.io/CarCollision/` once GitHub Pages finishes building.
-
 ## License
 This project is provided as-is for learning and demonstration purposes. Feel free to modify and reuse.
