@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Collision Simulation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Car Collision Simulation</h1>
+        <p>Watch what happens when two cars collide!</p>
+        
+        <div class="simulation-area">
+            <canvas id="simulationCanvas" width="800" height="320"></canvas>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <h3>Car 1 (Blue)</h3>
+                <label for="car1Speed">Speed: <span id="car1SpeedValue">50</span> km/h</label>
+                <input type="range" id="car1Speed" min="0" max="100" value="50">
+                
+                <label for="car1Mass">Mass: <span id="car1MassValue">1000</span> kg</label>
+                <input type="range" id="car1Mass" min="500" max="3000" value="1000" step="100">
+            </div>
+            
+            <div class="control-group">
+                <h3>Car 2 (Red)</h3>
+                <label for="car2Speed">Speed: <span id="car2SpeedValue">60</span> km/h</label>
+                <input type="range" id="car2Speed" min="0" max="100" value="60">
+                
+                <label for="car2Mass">Mass: <span id="car2MassValue">1200</span> kg</label>
+                <input type="range" id="car2Mass" min="500" max="3000" value="1200" step="100">
+            </div>
+            
+            <div class="control-group">
+                <button id="startButton">Start Simulation</button>
+                <button id="resetButton">Reset</button>
+                <div style="margin-top:12px; text-align:center;">
+                    <label for="restitution">Restitution (bounciness): <span id="restitutionValue">1.0</span></label>
+                    <input type="range" id="restitution" min="0" max="1" step="0.05" value="1">
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-panel">
+            <h3>Physics Information</h3>
+            <div class="info-columns">
+                <div class="info-column">
+                    <h4>Before Collision</h4>
+                    <div id="beforeInfo">
+                        <p>Car 1 Velocity: <span id="car1VelBefore">0</span> m/s</p>
+                        <p>Car 2 Velocity: <span id="car2VelBefore">0</span> m/s</p>
+                        <p>Total Momentum: <span id="momentumBefore">0</span> kg⋅m/s</p>
+                        <p>Total Kinetic Energy: <span id="keBefore">0</span> J</p>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <h4>After Collision</h4>
+                    <div id="afterInfo">
+                        <p>Car 1 Velocity: <span id="car1VelAfter">-</span> m/s</p>
+                        <p>Car 2 Velocity: <span id="car2VelAfter">-</span> m/s</p>
+                        <p>Total Momentum: <span id="momentumAfter">-</span> kg⋅m/s</p>
+                        <p>Total Kinetic Energy: <span id="keAfter">-</span> J</p>
+                        <p>Momentum (Car 1): <span id="p1After">-</span> kg⋅m/s</p>
+                        <p>Momentum (Car 2): <span id="p2After">-</span> kg⋅m/s</p>
+                        <p>KE (Car 1): <span id="ke1After">-</span> J</p>
+                        <p>KE (Car 2): <span id="ke2After">-</span> J</p>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin-top:16px; display:flex; gap:20px; flex-wrap:wrap;">
+                <div style="min-width:300px;">
+                    <h4>Extra Physics</h4>
+                    <p>Closing Speed: <span id="closingSpeed">-</span> m/s</p>
+                    <p>Center of Mass Velocity: <span id="comVelocity">-</span> m/s</p>
+                    <p>Kinetic Energy Lost: <span id="keLost">-</span> J</p>
+                </div>
+                <div style="min-width:300px;">
+                    <h4>Before (per-car)</h4>
+                    <p>Momentum (Car 1): <span id="p1Before">-</span> kg⋅m/s</p>
+                    <p>Momentum (Car 2): <span id="p2Before">-</span> kg⋅m/s</p>
+                    <p>KE (Car 1): <span id="ke1Before">-</span> J</p>
+                    <p>KE (Car 2): <span id="ke2Before">-</span> J</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="simulation.js"></script>
+</body>
+</html>
